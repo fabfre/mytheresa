@@ -1,31 +1,27 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu',
-});
+import {Platform, ScrollView, StyleSheet, Text, TextInput, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import Headline from '../../components/headline';
+import SearchInputField from '../../components/searchInputField';
+import Subheadline from '../../components/subheadline';
 
 interface State {}
 interface Props {}
 
-export default class StartScreen extends Component<Props, State> {
-  static navigationOptions = () => ({
-    headerStyle: styles.header,
-    headerTitleStyle: {alignSelf: 'center'},
-    title: 'Start',
-  });
-
-  render(): JSX.Element {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
-  }
-}
+const StartScreen = () => {
+  return (
+    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+      <ScrollView>
+        <Headline text={'Hallo Fabian'} style={{fontSize: 26}} />
+        <SearchInputField placeholderText={'Lieblingsprodukt suchen'} />
+        <View>
+          <Subheadline text={'Unsere besten Angebote'} />
+          <Headline text={'Kategorien'} />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -48,3 +44,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
+
+export default StartScreen;

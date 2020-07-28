@@ -9,14 +9,14 @@ import {configureStore} from './logic/configureStore';
 const navigationRef = React.createRef<NavigationContainerRef>();
 const {persistor, store} = configureStore();
 
-const Main = () => (
-    <PersistGate persistor={persistor}>
-      <Provider store={store}>
-        <NavigationContainer ref={navigationRef}>
-          <Navigator />
-        </NavigationContainer>
-      </Provider>
-    </PersistGate>
+const Main = (): JSX.Element => (
+  <PersistGate persistor={persistor}>
+    <Provider store={store}>
+      <NavigationContainer ref={navigationRef}>
+        <Navigator />
+      </NavigationContainer>
+    </Provider>
+  </PersistGate>
 );
 
 export default Main;

@@ -6,7 +6,11 @@ const RootStack = createStackNavigator();
 const MainStack = createStackNavigator();
 
 const MainStackNavigator = () => (
-  <MainStack.Navigator>
+  <MainStack.Navigator
+    screenOptions={{
+      headerShown: false,
+    }}
+  >
     <MainStack.Screen name="Home" component={StartScreen} />
   </MainStack.Navigator>
 );
