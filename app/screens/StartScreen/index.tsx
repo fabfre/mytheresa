@@ -13,6 +13,7 @@ import Headline from '../../components/headline';
 import SearchInputField from '../../components/searchInputField';
 import Category from '../../components/category';
 import HorizontalList from '../../components/horizontalListElement';
+import Item from '../../components/item';
 
 interface State {}
 interface Props {}
@@ -27,6 +28,25 @@ const StartScreen = () => {
           <Category />
           <Category />
           <Category />
+        </HorizontalList>
+        <HorizontalList
+          headline={'Empfehlungen für dich'}
+          subheadline={'Nur für dich ausgewählt'}
+          more={false}
+        >
+          <Item title={'Test 1'} imageUrl={'/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg'} price={123.44} />
+          <Item title={'Test 2'} imageUrl={'/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg'} price={123.44} />
+          <Item title={'Test 3'} imageUrl={'/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg'} price={123.44} />
+          <Item title={'Test 3'} imageUrl={'/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg'} price={123.44} />
+        </HorizontalList>
+        <HorizontalList
+          headline={'Von Experten ausgesucht'}
+          subheadline={'Das könnte dir gefallen'}
+          more={false}
+        >
+          <Item title={'Test 1'} imageUrl={'/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg'} price={123.44} />
+          <Item title={'Test 2'} imageUrl={'/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg'} price={123.44} />
+          <Item title={'Test 3'} imageUrl={'/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg'} price={123.44} />
         </HorizontalList>
       </ScrollView>
     </SafeAreaView>
