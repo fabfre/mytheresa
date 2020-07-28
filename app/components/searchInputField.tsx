@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleProp, StyleSheet, TextInput, View, ViewStyle} from 'react-native';
-import Headline from './headline';
 //@ts-ignore
 import Icon from 'react-native-vector-icons/FontAwesome';
 
