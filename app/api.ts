@@ -1,5 +1,5 @@
-import {Discovery, DiscoveryJson, Genre, GenreJson} from '../types/database';
-import {genreUrl, movieList} from '../constants';
+import {Discovery, DiscoveryJson, Genre, GenreJson} from './interfaces/database';
+import {genreUrl, movieList} from './constants';
 
 function getMovieDbInfo<JsonType>(url: string): Promise<JsonType> {
   return new Promise<JsonType>(async (resolve, reject) => {

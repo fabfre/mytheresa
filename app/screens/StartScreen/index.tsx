@@ -27,7 +27,7 @@ const StartScreen = (props: StartScreenProps) => {
       <ScrollView>
         <View style={style.headlineContainer}>
           <Headline text={'Hallo Fabian'} style={{fontSize: 26}} />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate('Cart')}>
             <Icon name="shopping-cart" size={36} color={'#000'} />
           </TouchableOpacity>
         </View>

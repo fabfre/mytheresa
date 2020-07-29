@@ -2,15 +2,13 @@ import React, {useState} from 'react';
 import {FlatList, Dimensions, ListRenderItemInfo} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import useCategory from './useCategory';
-import {Discovery} from '../../types/database';
+import {Discovery} from '../../interfaces/database';
 import LargeItem from '../../components/largeItem';
 import Headline from '../../components/headline';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RouteProp} from '@react-navigation/native';
 import {MainStackParamList} from '../../Navigators';
 import Subheadline from '../../components/subheadline';
-
-interface State {}
 
 type CategoryScreenRouteProp = RouteProp<MainStackParamList, 'Category'>;
 type CategoryScreenNavigationProp = StackNavigationProp<MainStackParamList, 'Category'>;

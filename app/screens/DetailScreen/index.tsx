@@ -1,4 +1,5 @@
-import React, {useRef} from 'react';
+import React, {useRef, useCallback} from 'react';
+import {useDispatch} from 'react-redux';
 import Headline from '../../components/headline';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RouteProp} from '@react-navigation/native';
@@ -9,8 +10,7 @@ import Item from '../../components/item';
 import HorizontalList from '../../components/horizontalListElement';
 import useStart from '../StartScreen/useStart';
 import CtaButton from '../../components/ctaButton';
-
-interface State {}
+import {addCartItem} from '../../logic/cart/actions';
 
 type DetailScreenRouteProp = RouteProp<MainStackParamList, 'Detail'>;
 type DetailScreenNavigationProp = StackNavigationProp<MainStackParamList, 'Detail'>;
@@ -27,6 +27,9 @@ const DetailScreen = (props: CategoryScreenProps): JSX.Element => {
   const item = props.route.params.item;
   const yOffset = useRef(new Animated.Value(0)).current;
   const [loading, _, discoveries] = useStart();
+  const dispatch = useDispatch();
+
+  const addToCart = () => dispatch(addCartItem(item));
 
   return (
     <View style={{flex: 1}}>
@@ -69,7 +72,11 @@ const DetailScreen = (props: CategoryScreenProps): JSX.Element => {
             style={style.detailImage}
             source={{uri: `https://image.tmdb.org/t/p/w300${item.backdrop_path}`}}
           />
-          <CtaButton text={'Zum Warenkorb hinzufügen'} style={{marginTop: 24}} />
+          <CtaButton
+            text={'Zum Warenkorb hinzufügen'}
+            onPress={addToCart}
+            style={{marginTop: 24}}
+          />
           <HorizontalList
             headline={'Das könnte dir auch gefallen'}
             subheadline={'Nur für dich ausgewählt'}

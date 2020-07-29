@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Discovery, Genre} from '../../types/database';
-import {getDiscoverEntriesForPageAndGenre, getGenres} from '../../interfaces/api';
+import {Discovery, Genre} from '../../interfaces/database';
+import {getDiscoverEntriesForPageAndGenre, getGenres} from '../../api';
 
 const useStart = (): [boolean, Genre[], Discovery[], Error | undefined] => {
   const [loading, setLoading] = useState(true);
