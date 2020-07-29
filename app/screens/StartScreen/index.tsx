@@ -45,6 +45,7 @@ const StartScreen = (props: StartScreenProps) => {
               title={discovery.title}
               imageUrl={discovery.backdrop_path}
               price={discovery.popularity}
+              onPress={() => props.navigation.navigate('Detail', {item: discovery})}
             />
           ))}
         </HorizontalList>
@@ -59,6 +60,7 @@ const StartScreen = (props: StartScreenProps) => {
               title={discovery.title}
               imageUrl={discovery.poster_path}
               price={discovery.popularity}
+              onPress={() => props.navigation.navigate('Detail', {item: discovery})}
             />
           ))}
         </HorizontalList>

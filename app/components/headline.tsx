@@ -12,7 +12,7 @@ const Headline = (props: HeadlineProps) => (
 
 const style = StyleSheet.create({
   textStyle: {
-    marginLeft: 16,
+    paddingLeft: 16,
     fontWeight: '700',
     fontSize: 24,
   },

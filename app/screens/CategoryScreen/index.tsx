@@ -34,6 +34,7 @@ const CategoryScreen = (props: CategoryScreenProps): JSX.Element => {
       imageUrl={discovery.item.poster_path}
       price={discovery.item.popularity}
       style={{marginHorizontal: 8}}
+      onPress={() => props.navigation.navigate('Detail', {item: discovery.item})}
     />
   );
 
@@ -51,7 +52,7 @@ const CategoryScreen = (props: CategoryScreenProps): JSX.Element => {
         data={discoveries}
         renderItem={renderLargeItem}
         onEndReached={() => setPage(page + 1)}
-      ></FlatList>
+      />
     </SafeAreaView>
   );
 };

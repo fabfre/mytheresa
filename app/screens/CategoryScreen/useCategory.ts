@@ -2,7 +2,7 @@ import {Discovery, Genre} from '../../types/database';
 import {useEffect, useState} from 'react';
 import {getDiscoverEntriesForPageAndGenre} from '../../interfaces/api';
 
-const useCategory = (page: number, genre: Genre): [boolean, Discovery[], Error | undefined] => {
+const useCategory = (page: number, genre: Genre | undefined): [boolean, Discovery[], Error | undefined] => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | undefined>(undefined);
   const [discoveries, setDiscoveries] = useState<Discovery[]>([]);

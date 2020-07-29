@@ -6,10 +6,11 @@ type ItemProps = {
   title: string;
   imageUrl: string;
   price: number;
+  onPress: () => void;
 };
 
 const Item = (props: ItemProps) => (
-  <TouchableOpacity style={[style.container, props.style]}>
+  <TouchableOpacity onPress={props.onPress} style={[style.container, props.style]}>
     <Image style={style.image} source={{uri: `https://image.tmdb.org/t/p/w300${props.imageUrl}`}} />
     <View style={{paddingHorizontal: 4}}>
       <Text style={style.priceStyle}>{props.price} $</Text>

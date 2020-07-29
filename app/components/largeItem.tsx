@@ -7,10 +7,11 @@ type ItemProps = {
   imageUrl: string;
   price: number;
   width?: number;
+  onPress?: () => void;
 };
 
 const LargeItem = (props: ItemProps) => (
-  <TouchableOpacity style={[style.container, props.style, props.width ? {width: props.width} : {}]}>
+  <TouchableOpacity onPress={props.onPress} style={[style.container, props.style, props.width ? {width: props.width} : {}]}>
     <Image
       style={[style.image, props.width ? {width: props.width, height: 1.4 * props.width} : {}]}
       source={{uri: `https://image.tmdb.org/t/p/w342/${props.imageUrl}`}}
