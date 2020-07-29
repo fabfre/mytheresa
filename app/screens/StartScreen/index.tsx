@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Headline from '../../components/headline';
@@ -10,6 +10,8 @@ import Item from '../../components/item';
 import LargeItem from '../../components/largeItem';
 import useStart from './useStart';
 import {MainStackParamList} from '../../Navigators';
+//@ts-ignore
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 type StartScreenNavigationProp = StackNavigationProp<MainStackParamList, 'Home'>;
 
@@ -23,7 +25,12 @@ const StartScreen = (props: StartScreenProps) => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
       <ScrollView>
-        <Headline text={'Hallo Fabian'} style={{fontSize: 26}} />
+        <View style={style.headlineContainer}>
+          <Headline text={'Hallo Fabian'} style={{fontSize: 26}} />
+          <TouchableOpacity>
+            <Icon name="shopping-cart" size={36} color={'#000'} />
+          </TouchableOpacity>
+        </View>
         <SearchInputField placeholderText={'Lieblingsprodukt suchen'} />
         <HorizontalList headline={'Kategorien'} subheadline={'Unsere besten Angebote'} more={true}>
           {genres.map((genre) => (
@@ -68,5 +75,15 @@ const StartScreen = (props: StartScreenProps) => {
     </SafeAreaView>
   );
 };
+
+const style = StyleSheet.create({
+  headlineContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingRight: 16,
+  },
+});
 
 export default StartScreen;
