@@ -3,11 +3,13 @@ import {StyleProp, StyleSheet, Text, TouchableOpacity, ViewStyle} from 'react-na
 
 type CategoryProps = {
   style?: StyleProp<ViewStyle>;
+  onPress?: () => void;
+  text: string;
 };
 
 const Category = (props: CategoryProps) => (
-  <TouchableOpacity style={[style.container, props.style]}>
-    <Text style={style.textStyle}>Comedy</Text>
+  <TouchableOpacity onPress={props.onPress} style={[style.container, props.style]}>
+    <Text style={style.textStyle}>{props.text}</Text>
   </TouchableOpacity>
 );
 

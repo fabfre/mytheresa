@@ -1,5 +1,6 @@
 import React from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Headline from '../../components/headline';
 import SearchInputField from '../../components/searchInputField';
@@ -8,11 +9,15 @@ import HorizontalList from '../../components/horizontalListElement';
 import Item from '../../components/item';
 import LargeItem from '../../components/largeItem';
 import useStart from './useStart';
+import {MainStackParamList} from '../../Navigators';
 
-interface State {}
-interface Props {}
+type StartScreenNavigationProp = StackNavigationProp<MainStackParamList, 'Home'>;
 
-const StartScreen = () => {
+type StartScreenProps = {
+  navigation: StartScreenNavigationProp;
+};
+
+const StartScreen = (props: StartScreenProps) => {
   const [loading, genres, discoveries] = useStart();
 
   return (
@@ -22,7 +27,11 @@ const StartScreen = () => {
         <SearchInputField placeholderText={'Lieblingsprodukt suchen'} />
         <HorizontalList headline={'Kategorien'} subheadline={'Unsere besten Angebote'} more={true}>
           {genres.map((genre) => (
-            <Category text={genre.name} key={genre.id} />
+            <Category
+              text={genre.name}
+              key={genre.id}
+              onPress={() => props.navigation.navigate('Category', {categoryId: genre.id})}
+            />
           ))}
         </HorizontalList>
         <HorizontalList

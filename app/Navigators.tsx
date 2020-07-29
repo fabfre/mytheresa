@@ -1,9 +1,15 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import StartScreen from './screens/StartScreen/index';
+import CategoryScreen from './screens/CategoryScreen';
 
 const RootStack = createStackNavigator();
 const MainStack = createStackNavigator();
+
+export type MainStackParamList = {
+  Home: undefined;
+  Category: {categoryId: number};
+};
 
 const MainStackNavigator = () => (
   <MainStack.Navigator
@@ -12,6 +18,7 @@ const MainStackNavigator = () => (
     }}
   >
     <MainStack.Screen name="Home" component={StartScreen} />
+    <MainStack.Screen name="Category" component={CategoryScreen} />
   </MainStack.Navigator>
 );
 
