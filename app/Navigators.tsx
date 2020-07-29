@@ -2,13 +2,14 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import StartScreen from './screens/StartScreen/index';
 import CategoryScreen from './screens/CategoryScreen';
+import {Genre} from './types/database';
 
 const RootStack = createStackNavigator();
 const MainStack = createStackNavigator();
 
 export type MainStackParamList = {
   Home: undefined;
-  Category: {categoryId: number};
+  Category: {genre: Genre};
 };
 
 const MainStackNavigator = () => (

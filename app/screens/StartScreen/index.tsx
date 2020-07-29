@@ -30,7 +30,7 @@ const StartScreen = (props: StartScreenProps) => {
             <Category
               text={genre.name}
               key={genre.id}
-              onPress={() => props.navigation.navigate('Category', {categoryId: genre.id})}
+              onPress={() => props.navigation.navigate('Category', {genre})}
             />
           ))}
         </HorizontalList>

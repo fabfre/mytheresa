@@ -6,17 +6,20 @@ type ItemProps = {
   title: string;
   imageUrl: string;
   price: number;
+  width?: number;
 };
 
 const LargeItem = (props: ItemProps) => (
-  <TouchableOpacity style={[style.container, props.style]}>
+  <TouchableOpacity style={[style.container, props.style, props.width ? {width: props.width} : {}]}>
     <Image
-      style={style.image}
+      style={[style.image, props.width ? {width: props.width, height: 1.4 * props.width} : {}]}
       source={{uri: `https://image.tmdb.org/t/p/w342/${props.imageUrl}`}}
     />
     <View style={{paddingHorizontal: 4}}>
       <Text style={style.priceStyle}>{props.price} $</Text>
-      <Text style={style.titleStyle} numberOfLines={1}>{props.title}</Text>
+      <Text style={style.titleStyle} numberOfLines={1}>
+        {props.title}
+      </Text>
     </View>
   </TouchableOpacity>
 );
